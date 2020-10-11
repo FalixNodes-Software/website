@@ -1,0 +1,58 @@
+<html>
+    <title>FalixNodes Software</title>
+    <link rel="icon" href="https://falixnodes.net/favicon.png">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=contain" />
+    <script src="https://kit.fontawesome.com/acb8522f6b.js" crossorigin="anonymous"></script>
+    <body>
+        <div class="desktop">
+            <div class="top">
+                <div class="content">
+                    <h1>FalixNodes Software</h1>
+                    <h2>Quick and easy access to your servers</h2>
+                    <a href="./download/">Download</a>
+                </div>
+            </div>
+            <div class="bottom">
+                <img src="src/images/preview.png">
+            </div>
+        </div>
+        <div class="mobile">
+            <div class="top">
+                <div class="content">
+                    <h1>FalixNodes App</h1>
+                    <h2>Quick and easy access to your servers</h2>
+                    <div class="downloadMobile">
+                        <a href="./download/android/"><i class="fab fa-android"></i> Android</a>
+                        <a href="./download/iOS/"><i class="fab fa-apple"></i> iOS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<style>
+.mobile::before {
+    content: "";
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    width: calc(100% - -1000px);
+    height: calc(100% - 300px);
+    background: url(https://software.falixnodes.net/src/images/full.png);
+    background-size: contain;
+    background-repeat: repeat-x;
+    animation: 500s scroll infinite;
+}
+
+@keyframes scroll {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -10000px;
+    }
+}
+</style>
