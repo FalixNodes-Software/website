@@ -1,58 +1,51 @@
 <html>
-    <title>FalixNodes Software</title>
-    <link rel="icon" href="https://falixnodes.net/favicon.png">
-    <link rel="stylesheet" href="./src/css/style.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=contain" />
-    <script src="https://kit.fontawesome.com/acb8522f6b.js" crossorigin="anonymous"></script>
+    <title>OS Detection Demo</title>
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://desktop.github.com/javascript/os.js" charset="utf-8"></script>
     <body>
-        <div class="desktop">
-            <div class="top">
-                <div class="content">
-                    <h1>FalixNodes Software</h1>
-                    <h2>Quick and easy access to your servers</h2>
-                    <a href="./download/">Download</a>
-                </div>
-            </div>
-            <div class="bottom">
-                <img src="src/images/preview.png">
+        <div data-for-os="windows" class="pc">
+            <img src="./src/img/dell.png">
+            <div class="content">
+              <h1>FalixNodes Software</h1>
+              <a id="download" href="https://github.com/FalixNodes-Software/Desktop-App/releases/latest/download/FalixNodes-Setup.exe">Download for Windows(64-bit)</a>
+              <p>Download for <a href="https://github.com/FalixNodes-Software/Desktop-App/releases/latest/download/FalixNodes.pkg">macOS</a> or <a href="https://snapcraft.io/falixnodes">Linux</a></p>
             </div>
         </div>
-        <div class="mobile">
-            <div class="top">
-                <div class="content">
-                    <h1>FalixNodes App</h1>
-                    <h2>Quick and easy access to your servers</h2>
-                    <div class="downloadMobile">
-                        <a href="https://play.google.com/store/apps/details?id=com.korbsstudio.falixnodes"><i class="fab fa-google-play"></i> Android</a>
-                        <a href="./download/iOS/"><i class="fab fa-apple"></i> iOS</a>
-                    </div>
-                </div>
-            </div>
+        <div data-for-os="mac" class="mac">
+          <img src="./src/img/mac.png">
+          <div class="content">
+            <h1>FalixNodes Software</h1>
+            <a id="download" href="https://github.com/FalixNodes-Software/Desktop-App/releases/latest/download/FalixNodes.pkg">Download for macOS</a>
+            <p>Download for <a href="https://github.com/FalixNodes-Software/Desktop-App/releases/latest/download/FalixNodes-Setup.exe">Windows</a> or <a href="https://snapcraft.io/falixnodes">Linux</a></p>
+          </div>
         </div>
     </body>
 </html>
+<script>
+(function() {
 
+var htmlElement = document.documentElement;
 
-<style>
-.mobile::before {
-    content: "";
-    position: absolute;
-    top: 50px;
-    left: 0px;
-    width: calc(100% - -1000px);
-    height: calc(100% - 300px);
-    background: url(https://software.falixnodes.net/src/images/full.png);
-    background-size: contain;
-    background-repeat: repeat-x;
-    animation: 500s scroll infinite;
+if (navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i)) {
+  htmlElement.className = 'mac'
+} else {
+  htmlElement.className = 'windows'
 }
 
-@keyframes scroll {
-    from {
-        background-position: 0px;
-    }
-    to {
-        background-position: -10000px;
-    }
-}
-</style>
+document.addEventListener('click', function(event) {
+  var target = event.target;
+  if (target.getAttribute && target.getAttribute('data-action') === 'switch-os') {
+    event.preventDefault();
+    htmlElement.className = target.getAttribute('data-os')
+  }
+})
+})();
+</script>
+<script type="text/javascript">
+  <!--
+  if (screen.width <= 699) {
+  document.location = "mobile.html";
+  }
+  //-->
+  </script>

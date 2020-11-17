@@ -1,0 +1,42 @@
+<html>
+    <title>OS Detection Demo</title>
+    <link rel="stylesheet" href="./style-mobile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://desktop.github.com/javascript/os.js" charset="utf-8"></script>
+    <body>
+        <div data-for-os="windows" class="pc">
+            <img src="./src/img/android.png">
+            <div class="content">
+              <h1>FalixNodes Software</h1>
+              <a id="download" href="./FalixNodes.apk">Download for Android</a>
+            </div>
+        </div>
+        <div data-for-os="mac" class="mac">
+          <img src="./src/img/ios.png">
+          <div class="content">
+            <h1>FalixNodes Software</h1>
+            <a id="download" href="./FalixNodes.mobileconfig">Download for iOS</a>
+          </div>
+        </div>
+    </body>
+</html>
+<script>
+(function() {
+
+var htmlElement = document.documentElement;
+
+if (navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i)) {
+  htmlElement.className = 'mac' //ios
+} else {
+  htmlElement.className = 'windows' //etc
+}
+
+document.addEventListener('click', function(event) {
+  var target = event.target;
+  if (target.getAttribute && target.getAttribute('data-action') === 'switch-os') {
+    event.preventDefault();
+    htmlElement.className = target.getAttribute('data-os')
+  }
+})
+})();
+</script>
